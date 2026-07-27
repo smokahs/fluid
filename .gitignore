@@ -1,0 +1,25 @@
+# gradle
+.gradle/
+build/
+out/
+bin/
+
+# eclipse / idea / vscode
+*.launch
+.settings/
+.metadata/
+.classpath
+.project
+.idea/
+*.iml
+.vscode/
+
+# minecraft runs
+run/
+run-data/
+runs/
+
+# misc
+*.log
+server.log
+backup
