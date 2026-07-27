@@ -2,30 +2,13 @@
 
 Forge 1.20.1. Puts every mod's molten metals on **one unit** and **one fluid**.
 
-## The problem
-
-| Mod | mB per ingot |
-| --- | --- |
-| GregTech CEu (`GTValues.L`) | **144** |
-| Tinkers' Construct (`FluidValues.INGOT`) | **90** |
-| Create: Metallurgy | **90** |
-
-That is not just an annoyance. Once any two of those share a fluid, or a tag, you have a duplication
-loop: melt an ingot on the 144 side, cast it on the 90 side, get 1.6 ingots back, repeat. Unifying
-the fluids without unifying the unit makes the problem worse, not better.
-
-90 to 144 is a multiply by eight fifths. Every standard Tinkers' amount is a multiple of five and
-every GregTech one a multiple of sixteen, so the usual values convert exactly in both directions.
-
 ## What it does
 
 1. **Rescales amounts.** Recipes belonging to a mod listed in `unit.sourceUnits` have their molten
-   metal amounts moved onto `unit.ingot` (144 by default).
+   metal amounts moved to `unit.ingot` (144 by default for gregtech).
 2. **Folds fluids.** `tconstruct:molten_iron` and `createmetallurgy:molten_iron` are repointed at
-   GregTech's, so a machine on either side can drink from the same tank.
-3. **Ships the tags.** GregTech registers no `forge:molten_*` fluid tags at all, so Tinkers'
-   recipes — which ask for the tag, not the fluid — could not see GregTech's fluids no matter what
-   the recipes said. A generated built-in pack adds them.
+   GregTech's, so a machine on either side can take from the same tank.
+3. **Ships the tags.** GregTech registers no `forge:molten_*` fluid tags at all, this mod generates tags tinkers can read.
 4. **Fixes the tooltips.** Tinkers' tank tooltips hardcode "an ingot is 90mB" in a resource file.
    The same pack overrides it.
 
@@ -37,11 +20,9 @@ Mods added later are handled by the same pass.
 
 - It does not touch fluids that are not ingot denominated. Molten clay, glass, slime and the rest
   keep the values their own mod balanced.
-- It does not convert amounts at transfer time. A wrapping fluid handler rounds, leaks and is
-  invisible to recipe viewers; the conversion belongs in the recipes.
-- It does not rewrite GregTech. GregTech generates its recipes at runtime in the thousands and its
-  fluids carry material properties its own machines read. It is the wrong side of the lever, so it
-  is the side everything else moves onto. Set `unify.canonicalNamespace` if you disagree.
+- It does not convert amounts at transfer time.
+- It does not rewrite GregTech ingot behavior. GregTech generates its recipes at runtime in the thousands and its
+  fluids carry material properties its own machines read. Set `unify.canonicalNamespace` if you want to use a different mod than GT
 
 ## Checking it worked
 
