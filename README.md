@@ -1,6 +1,6 @@
 # Fluid Unit
 
-Forge 1.20.1. Puts every mod's molten metals on **one unit** and **one fluid**.
+Forge 1.20.1. Unify multiple different mod's fluid units!
 
 ## What it does
 
