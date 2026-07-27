@@ -9,7 +9,7 @@ Initial release.
 - Folds duplicate molten fluids onto one winner, resolved from the fluid registry rather than a
   shipped table, with a temperature check so a cold chemical of the same name is not mistaken for
   the melt.
-- Generates `forge:molten_*` tag membership for the winning fluids. GregTech ships none, so without
+- Generates `forge:molten_*` tags for the winning fluids. GregTech ships none, so without
   this Tinkers' recipes cannot see its fluids at all.
 - Overrides Tinkers' ingot and metal tooltip units so tanks stop claiming an ingot is 90mB.
 - `/fluidunit dump` prints the resolved mapping and every molten fluid left unmatched.
