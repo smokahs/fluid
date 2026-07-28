@@ -1,4 +1,4 @@
-package com.fluidunit.rewrite;
+package com.fluidify.rewrite;
 
 import java.util.Map;
 
@@ -6,9 +6,9 @@ import javax.annotation.Nullable;
 
 import net.minecraft.resources.ResourceLocation;
 
-import com.fluidunit.config.Cfg;
-import com.fluidunit.unit.Context;
-import com.fluidunit.unit.Units;
+import com.fluidify.config.Cfg;
+import com.fluidify.unit.Context;
+import com.fluidify.unit.Units;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

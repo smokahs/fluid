@@ -1,4 +1,4 @@
-package com.fluidunit.data;
+package com.fluidify.data;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -17,7 +17,7 @@ import net.minecraft.server.packs.metadata.MetadataSectionSerializer;
 import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
 import net.minecraft.server.packs.resources.IoSupplier;
 
-import com.fluidunit.FluidUnit;
+import com.fluidify.Fluidify;
 
 // serves the generated tags and tooltips. a fresh instance is made for every reload, so the lazy
 // generation below is also what picks up a config edit followed by /reload.
@@ -40,7 +40,7 @@ public final class Resources implements PackResources {
             try {
                 g = Gen.generate();
             } catch (Throwable failed) {
-                FluidUnit.LOGGER.error("Failed to generate the fluid unit pack", failed);
+                Fluidify.LOGGER.error("Failed to generate the Fluidify pack", failed);
                 g = new Gen.Generated(Map.of(), Map.of());
             }
             this.generated = g;
@@ -89,7 +89,7 @@ public final class Resources implements PackResources {
     public <T> T getMetadataSection(MetadataSectionSerializer<T> deserializer) {
         if (deserializer == PackMetadataSection.TYPE) {
             return (T) new PackMetadataSection(
-                    Component.literal("Fluid Unit tags and tooltips"),
+                    Component.literal("Fluidify tags and tooltips"),
                     SharedConstants.getCurrentVersion().getPackVersion(type));
         }
         return null;

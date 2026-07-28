@@ -1,12 +1,12 @@
-package com.fluidunit.rewrite;
+package com.fluidify.rewrite;
 
 import java.util.Map;
 
 import net.minecraft.resources.ResourceLocation;
 
-import com.fluidunit.FluidUnit;
-import com.fluidunit.config.Cfg;
-import com.fluidunit.unit.Context;
+import com.fluidify.Fluidify;
+import com.fluidify.config.Cfg;
+import com.fluidify.unit.Context;
 
 import com.google.gson.JsonElement;
 
@@ -39,7 +39,7 @@ public final class Rewrite {
         } catch (Throwable failed) {
             // a broken pass would otherwise take the whole datapack reload with it. better to ship
             // the recipes as written and say so loudly.
-            FluidUnit.LOGGER.error("Fluid unit conversion failed, recipes are unchanged", failed);
+            Fluidify.LOGGER.error("Fluid unit conversion failed, recipes are unchanged", failed);
         }
     }
 }

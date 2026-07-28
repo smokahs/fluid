@@ -1,4 +1,4 @@
-package com.fluidunit.rewrite;
+package com.fluidify.rewrite;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -7,9 +7,9 @@ import java.util.Set;
 
 import net.minecraft.resources.ResourceLocation;
 
-import com.fluidunit.FluidUnit;
-import com.fluidunit.config.Cfg;
-import com.fluidunit.unit.Context;
+import com.fluidify.Fluidify;
+import com.fluidify.config.Cfg;
+import com.fluidify.unit.Context;
 
 public final class Report {
 
@@ -38,15 +38,15 @@ public final class Report {
 
     public void log(Context context) {
         if (Cfg.INSTANCE.logSummary.get() && (scaled > 0 || aliased > 0 || resolvedTags > 0)) {
-            FluidUnit.LOGGER.info(
+            Fluidify.LOGGER.info(
                     "Fluid unit {}mB/ingot: rescaled {} amounts, repointed {} fluids, resolved {} output tags",
                     context.target(), scaled, aliased, resolvedTags);
         }
         if (rounded > 0 && Cfg.INSTANCE.logRounding.get()) {
-            FluidUnit.LOGGER.warn("{} amounts did not divide evenly and were rounded: {}", rounded, roundedSamples);
+            Fluidify.LOGGER.warn("{} amounts did not divide evenly and were rounded: {}", rounded, roundedSamples);
         }
         if (!unknown.isEmpty() && Cfg.INSTANCE.warnUnknownNamespaces.get()) {
-            FluidUnit.LOGGER.warn(
+            Fluidify.LOGGER.warn(
                     "These mods use a shared molten metal but are in neither unit list, so their amounts were "
                             + "left alone: {}. Add each as namespace=millibuckets under unit.sourceUnits, or to "
                             + "unit.nativeNamespaces if it already writes {}mB per ingot.",

@@ -1,4 +1,4 @@
-package com.fluidunit.rewrite;
+package com.fluidify.rewrite;
 
 import java.util.List;
 import java.util.Set;

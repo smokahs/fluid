@@ -1,4 +1,4 @@
-package com.fluidunit.config;
+package com.fluidify.config;
 
 import java.util.List;
 

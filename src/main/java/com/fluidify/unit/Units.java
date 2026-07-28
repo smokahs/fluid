@@ -1,10 +1,10 @@
-package com.fluidunit.unit;
+package com.fluidify.unit;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fluidunit.FluidUnit;
+import com.fluidify.Fluidify;
 
 // parsing for the name=value config lists, and the amount arithmetic itself.
 public final class Units {
@@ -22,7 +22,7 @@ public final class Units {
         for (String entry : list) {
             int split = entry.indexOf('=');
             if (split <= 0) {
-                FluidUnit.LOGGER.warn("Ignoring config entry '{}', expected name=value", entry);
+                Fluidify.LOGGER.warn("Ignoring config entry '{}', expected name=value", entry);
                 continue;
             }
             out.put(entry.substring(0, split).trim(), entry.substring(split + 1).trim());
@@ -38,10 +38,10 @@ public final class Units {
                 if (value > 0) {
                     out.put(entry.getKey(), value);
                 } else {
-                    FluidUnit.LOGGER.warn("Ignoring unit '{}={}', must be positive", entry.getKey(), entry.getValue());
+                    Fluidify.LOGGER.warn("Ignoring unit '{}={}', must be positive", entry.getKey(), entry.getValue());
                 }
             } catch (NumberFormatException notANumber) {
-                FluidUnit.LOGGER.warn("Ignoring unit '{}={}', not a number", entry.getKey(), entry.getValue());
+                Fluidify.LOGGER.warn("Ignoring unit '{}={}', not a number", entry.getKey(), entry.getValue());
             }
         }
         return out;

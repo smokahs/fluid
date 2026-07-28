@@ -1,4 +1,4 @@
-package com.fluidunit.unit;
+package com.fluidify.unit;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -14,8 +14,8 @@ import net.minecraft.world.level.material.Fluid;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
-import com.fluidunit.FluidUnit;
-import com.fluidunit.config.Cfg;
+import com.fluidify.Fluidify;
+import com.fluidify.config.Cfg;
 
 // works out which molten fluid stands in for which. built off the fluid registry rather than a
 // shipped table, so a metal added by any mod is picked up as long as its name matches.
@@ -118,7 +118,7 @@ public final class Aliases {
         try {
             return fluid.getFluidType().getTemperature() >= minTemperature;
         } catch (Throwable unreadable) {
-            FluidUnit.LOGGER.debug("Could not read the temperature of {}", id, unreadable);
+            Fluidify.LOGGER.debug("Could not read the temperature of {}", id, unreadable);
             return false;
         }
     }

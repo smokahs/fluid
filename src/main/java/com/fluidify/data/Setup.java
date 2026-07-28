@@ -1,4 +1,4 @@
-package com.fluidunit.data;
+package com.fluidify.data;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.packs.PackType;
@@ -9,14 +9,14 @@ import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import com.fluidunit.FluidUnit;
+import com.fluidify.Fluidify;
 
 // registers the generated pack. it goes on top so its tooltip units win over the ones tinkers
 // ships, which are the same file id.
-@Mod.EventBusSubscriber(modid = FluidUnit.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = Fluidify.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class Setup {
 
-    private static final String PACK_ID = "fluidunit_generated";
+    private static final String PACK_ID = "fluidify_generated";
 
     private Setup() {}
 
@@ -25,7 +25,7 @@ public final class Setup {
         PackType type = event.getPackType();
         Pack pack = Pack.readMetaAndCreate(
                 PACK_ID,
-                Component.literal("Fluid Unit"),
+                Component.literal("Fluidify"),
                 true,
                 id -> new Resources(id, type),
                 type,

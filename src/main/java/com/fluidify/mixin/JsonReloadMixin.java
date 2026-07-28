@@ -1,4 +1,4 @@
-package com.fluidunit.mixin;
+package com.fluidify.mixin;
 
 import java.util.Map;
 
@@ -8,7 +8,7 @@ import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.item.crafting.RecipeManager;
 
-import com.fluidunit.rewrite.Rewrite;
+import com.fluidify.rewrite.Rewrite;
 
 import com.google.gson.JsonElement;
 import org.spongepowered.asm.mixin.Mixin;
@@ -27,7 +27,7 @@ public abstract class JsonReloadMixin {
     @Inject(method = "prepare(Lnet/minecraft/server/packs/resources/ResourceManager;"
             + "Lnet/minecraft/util/profiling/ProfilerFiller;)Ljava/util/Map;",
             at = @At("RETURN"))
-    private void fluidunit$normalise(ResourceManager resourceManager,
+    private void fluidify$normalise(ResourceManager resourceManager,
                                      ProfilerFiller profiler,
                                      CallbackInfoReturnable<Map<ResourceLocation, JsonElement>> cir) {
         if ((Object) this instanceof RecipeManager) {

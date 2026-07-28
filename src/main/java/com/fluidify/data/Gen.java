@@ -1,4 +1,4 @@
-package com.fluidunit.data;
+package com.fluidify.data;
 
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
@@ -6,9 +6,9 @@ import java.util.Map;
 
 import net.minecraft.resources.ResourceLocation;
 
-import com.fluidunit.FluidUnit;
-import com.fluidunit.config.Cfg;
-import com.fluidunit.unit.Context;
+import com.fluidify.Fluidify;
+import com.fluidify.config.Cfg;
+import com.fluidify.unit.Context;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -33,11 +33,11 @@ public final class Gen {
         if (Cfg.INSTANCE.emitFluidTags.get()) {
             fluidTags(context, data);
         }
-        if (Cfg.INSTANCE.emitTinkersTooltips.get() && FluidUnit.loaded(FluidUnit.TIC)) {
+        if (Cfg.INSTANCE.emitTinkersTooltips.get() && Fluidify.loaded(Fluidify.TIC)) {
             tooltips(context, assets);
         }
 
-        FluidUnit.LOGGER.info("Generated {} tag files and {} tooltip files", data.size(), assets.size());
+        Fluidify.LOGGER.info("Generated {} tag files and {} tooltip files", data.size(), assets.size());
         return new Generated(data, assets);
     }
 
@@ -50,7 +50,7 @@ public final class Gen {
                     bytes(tag(fluid)));
             all.add(entry(fluid));
         });
-        if (all.isEmpty() || !FluidUnit.loaded(FluidUnit.TIC)) {
+        if (all.isEmpty() || !Fluidify.loaded(Fluidify.TIC)) {
             return;
         }
         // metals tinkers has no molten fluid of its own for are not in its tooltip tag either, so
@@ -58,7 +58,7 @@ public final class Gen {
         JsonObject tooltip = new JsonObject();
         tooltip.addProperty("replace", false);
         tooltip.add("values", all);
-        out.put(new ResourceLocation(FluidUnit.TIC, "tags/fluids/tooltips/metal.json"), bytes(tooltip));
+        out.put(new ResourceLocation(Fluidify.TIC, "tags/fluids/tooltips/metal.json"), bytes(tooltip));
     }
 
     private static void tooltips(Context context, Map<ResourceLocation, byte[]> out) {
@@ -80,7 +80,7 @@ public final class Gen {
     }
 
     private static ResourceLocation tooltip(String name) {
-        return new ResourceLocation(FluidUnit.TIC, "mantle/fluid_tooltips/" + name + ".json");
+        return new ResourceLocation(Fluidify.TIC, "mantle/fluid_tooltips/" + name + ".json");
     }
 
     private static JsonArray units(String[] keys, int[] needed) {

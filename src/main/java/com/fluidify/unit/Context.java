@@ -1,4 +1,4 @@
-package com.fluidunit.unit;
+package com.fluidify.unit;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 import net.minecraft.resources.ResourceLocation;
 
-import com.fluidunit.config.Cfg;
+import com.fluidify.config.Cfg;
 
 // everything the rewrite needs, resolved once per reload and never mutated after. the walk runs off
 // thread with the rest of resource preparation, so nothing may be lazily filled in mid-pass.

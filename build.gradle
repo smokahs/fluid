@@ -101,7 +101,7 @@ tasks.named('jar', Jar).configure {
 spotless {
     java {
         target 'src/main/java/**/*.java'
-        importOrder('java', 'javax', 'net.minecraft', 'net.minecraftforge', 'com.fluidunit')
+        importOrder('java', 'javax', 'net.minecraft', 'net.minecraftforge', 'com.fluidify')
         removeUnusedImports()
         trimTrailingWhitespace()
         indentWithSpaces(4)
