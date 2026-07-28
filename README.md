@@ -5,7 +5,7 @@
 
 Forge 1.20.1. 
 
-See the [changelog](https://github.com/smokahs/fluidify/blob/main/CHANGELOG.md) for all details!
+See the [changelog](https://github.com/smokahs/fluidify/blob/master/CHANGELOG.md) for all details!
 
 ## Use this!
 
