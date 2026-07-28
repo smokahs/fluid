@@ -40,7 +40,7 @@ public final class Dump {
         say(ctx, "Folded fluids: " + aliases.size() + ", left alone: " + unmatched.size());
         say(ctx, "Full mapping written to the log");
 
-        Fluidify.LOGGER.info("Fluid unit: {}mB per ingot", context.target());
+        Fluidify.LOGGER.info("Fluidify unit: {}mB per ingot", context.target());
         Fluidify.LOGGER.info("Rescaled mods: {}", context.sourceUnits());
         aliases.forEach((from, to) -> Fluidify.LOGGER.info("  {} -> {}", from, to));
         for (String fluid : unmatched) {

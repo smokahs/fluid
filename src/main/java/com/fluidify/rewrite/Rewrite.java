@@ -39,7 +39,7 @@ public final class Rewrite {
         } catch (Throwable failed) {
             // a broken pass would otherwise take the whole datapack reload with it. better to ship
             // the recipes as written and say so loudly.
-            Fluidify.LOGGER.error("Fluid unit conversion failed, recipes are unchanged", failed);
+            Fluidify.LOGGER.error("Fluidify conversion failed, recipes are unchanged", failed);
         }
     }
 }

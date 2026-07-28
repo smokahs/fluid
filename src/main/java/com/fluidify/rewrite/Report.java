@@ -39,7 +39,7 @@ public final class Report {
     public void log(Context context) {
         if (Cfg.INSTANCE.logSummary.get() && (scaled > 0 || aliased > 0 || resolvedTags > 0)) {
             Fluidify.LOGGER.info(
-                    "Fluid unit {}mB/ingot: rescaled {} amounts, repointed {} fluids, resolved {} output tags",
+                    "Fluidify {}mB/ingot: rescaled {} amounts, repointed {} fluids, resolved {} output tags",
                     context.target(), scaled, aliased, resolvedTags);
         }
         if (rounded > 0 && Cfg.INSTANCE.logRounding.get()) {
